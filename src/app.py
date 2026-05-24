@@ -92,7 +92,7 @@ async def get_feed(
                 "file_name": post.file_name,
                 "created_at": post.created_at.isoformat(),
                 "is_owner": post.user_id == user.id,
-                "email": post.user.email
+                "email": post.user.email if post.user else None
             }
         )
     return {"posts": posts_data}
